@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+header {
+	height: 48px;
+	box-shadow: 1px 4px 8px grey;
+	display: flex;
+	align-items: center;
+	h3 {
+		font-size: 24px;
+		color: $logo;
+		margin-left: 4px;
+	}
+}
