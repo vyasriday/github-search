@@ -10,4 +10,11 @@
 			margin-right: 4px;
 		}
 	}
+	@media (max-width: 576px) {
+		form {
+			input {
+				width: 66%;
+			}
+		}
+	}
 }

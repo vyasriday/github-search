@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 		<button
 			type={type}
 			style={{
-				backgroundColor: background ? background : '#fff',
+				backgroundColor: background ? background : 'rgb(247, 160, 55)',
 				color: color ? color : '#000',
 			}}
 		>

@@ -14,9 +14,11 @@ const App: React.FC = () => {
 	const [repos, setRepos] = useState<RepositorySchema[]>([]);
 	const [loading, showLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string>('');
+
 	async function handleSubmit(e: any) {
 		e.preventDefault();
 		setRepos([]);
+		setError('');
 		showLoading(true);
 		try {
 			const response = await fetch(`${baseUrl}/${search}/repos`);
@@ -25,7 +27,12 @@ const App: React.FC = () => {
 				showLoading(false);
 				setError('user not found!');
 			}
-			setRepos(jsonResponse);
+			if (!jsonResponse.length) {
+				setError('found 0 repositories 😰');
+			} else {
+				setError('');
+				setRepos(jsonResponse);
+			}
 			showLoading(false);
 		} catch (error) {
 			console.log(error);
@@ -39,7 +46,7 @@ const App: React.FC = () => {
 				<Input
 					value={search}
 					type='search'
-					placeholder='Search Github Repos'
+					placeholder='Enter github username'
 					onChange={(e: ChangeEvent<HTMLInputElement>) =>
 						setSearch(e.target.value)
 					}

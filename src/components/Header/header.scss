@@ -2,12 +2,14 @@
 
 header {
 	height: 48px;
-	box-shadow: 1px 4px 8px grey;
+	box-shadow: 1px 4px 12px 1px #cbcbcb7d;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	h3 {
 		font-size: 24px;
 		color: $logo;
 		margin-left: 4px;
+		letter-spacing: 1px;
 	}
 }

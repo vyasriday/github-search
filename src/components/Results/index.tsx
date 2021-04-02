@@ -3,6 +3,7 @@ import Input from '../Input';
 import { RepositorySchema } from '../../schema/index';
 import { FaStar, FaExclamationTriangle } from 'react-icons/fa';
 import { AiOutlineEye } from 'react-icons/ai';
+import { trim } from '../../helper';
 
 import './results.scss';
 
@@ -29,21 +30,24 @@ const Results: React.FC<ResultsProps> = (props) => {
 		switch (sort) {
 			case 'by stars':
 				setFilteredRepos(
-					repos.sort((a, b) => a.stargazers_count - b.stargazers_count)
+					repos.sort((a, b) => b.stargazers_count - a.stargazers_count)
 				);
 				break;
 			case 'by issue count':
 				setFilteredRepos(
-					repos.sort((a, b) => a.open_issues_count - b.open_issues_count)
+					repos.sort((a, b) => b.open_issues_count - a.open_issues_count)
 				);
 				break;
 			case 'by watchers':
 				setFilteredRepos(
-					repos.sort((a, b) => a.watchers_count - b.watchers_count)
+					repos.sort((a, b) => b.watchers_count - a.watchers_count)
 				);
 				break;
+			default:
+				setFilteredRepos(repos);
 		}
 	}, [sort, repos]);
+
 	return (
 		<div className='results'>
 			<div className='tools'>
@@ -53,7 +57,7 @@ const Results: React.FC<ResultsProps> = (props) => {
 						setFilter(e.target.value)
 					}
 					value={filter}
-					placeholder='search for specific repository'
+					placeholder='Filter repositories by name'
 				/>
 				<div className='sort'>
 					<select
@@ -70,7 +74,7 @@ const Results: React.FC<ResultsProps> = (props) => {
 					</select>
 				</div>
 			</div>
-			<div className='repos-results'>
+			<div className='repos'>
 				{filteredRepos.map((repo: RepositorySchema) => {
 					const {
 						id,
@@ -92,7 +96,7 @@ const Results: React.FC<ResultsProps> = (props) => {
 								<li>
 									<a href={repo_url}>{name}</a>
 								</li>
-								<li>{description}</li>
+								<li>{description ? trim(description, 60) + ' ...' : ''}</li>
 								<li>
 									<FaStar size={22} color='rgb(255, 215, 0)' />
 									{stargazers_count}
