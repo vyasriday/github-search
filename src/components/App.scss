@@ -1,4 +1,13 @@
 .main {
 	display: flex;
 	flex-direction: column;
+	form {
+		display: flex;
+		justify-content: center;
+		margin-top: 24px;
+		input {
+			width: 60%;
+			margin-right: 4px;
+		}
+	}
 }

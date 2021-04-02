@@ -1,0 +1,62 @@
+@import '../../styles/variables.scss';
+.results {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2rem;
+	.row {
+		display: flex;
+		margin: 2rem 0;
+		padding: 12px 8px;
+		border-radius: 4px;
+		box-shadow: 1px 6px 11px lightgrey;
+		.owner {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			a {
+				font-size: 18px;
+				font-weight: 700;
+				color: $black;
+			}
+			img {
+				height: 100px;
+				width: 100px;
+				border-radius: 300px;
+			}
+		}
+		.info {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			li:first-child {
+				a {
+					font-size: 18px;
+				}
+			}
+			li {
+				display: flex;
+				align-items: center;
+				svg {
+					margin-right: 6px;
+				}
+			}
+		}
+	}
+
+	.tools {
+		display: flex;
+
+		.sort {
+			margin-left: 1rem;
+			select {
+				width: 150px;
+				font-size: 16px;
+				border-radius: 4px;
+				background: #efebeb;
+				height: 30px;
+			}
+		}
+	}
+}
