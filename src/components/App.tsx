@@ -50,6 +50,7 @@ const App: React.FC = () => {
 					onChange={(e: ChangeEvent<HTMLInputElement>) =>
 						setSearch(e.target.value)
 					}
+					required={true}
 				/>
 				<Button type='submit' label='Search' />
 			</form>

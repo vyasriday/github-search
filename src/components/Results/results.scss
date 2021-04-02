@@ -14,17 +14,17 @@
 		}
 		.sort {
 			margin-left: 1rem;
-			select {
-				font-size: 16px;
-				border-radius: 4px;
-				background: #efebeb;
-				height: 30px;
-				padding-left: 4px;
-				font-weight: 700;
-			}
 		}
 	}
 
+	select {
+		font-size: 16px;
+		border-radius: 4px;
+		background: #efebeb;
+		height: 30px;
+		padding-left: 4px;
+		font-weight: 700;
+	}
 	.repos {
 		width: 80%;
 		justify-content: center;
