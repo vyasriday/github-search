@@ -21,7 +21,8 @@ const App: React.FC = () => {
 		setError('');
 		showLoading(true);
 		try {
-			const response = await fetch(`${baseUrl}/${search}/repos`);
+			const url = `${baseUrl}/${search}/repos?per_page=100`;
+			const response = await fetch(url);
 			const jsonResponse = await response.json();
 			if (jsonResponse.message) {
 				showLoading(false);
