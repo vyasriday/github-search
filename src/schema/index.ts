@@ -7,7 +7,7 @@ export interface RepositorySchema {
 
 	owner: {
 		login: string;
-		id: string;
+		id: number;
 		node_id: string;
 		avatar_url: string;
 		gravatar_id: string;
@@ -87,7 +87,6 @@ export interface RepositorySchema {
 	archived: boolean;
 	disabled: boolean;
 	open_issues_count: number;
-	topics?: string[];
 	license: null | {
 		key: string;
 		name: string;

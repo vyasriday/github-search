@@ -3,7 +3,7 @@ import Input from '../Input';
 import { RepositorySchema } from '../../schema/index';
 import { FaStar, FaExclamationTriangle } from 'react-icons/fa';
 import { AiOutlineEye } from 'react-icons/ai';
-import { trim } from '../../helper';
+import { truncate } from '../../helper';
 import Dropdown from '../Dropdown';
 
 import './results.scss';
@@ -124,7 +124,7 @@ const Results: React.FC<ResultsProps> = (props) => {
 						html_url: repo_url,
 					} = repo;
 					return (
-						<div className='row' key={id}>
+						<div className='row' key={id} data-testid='repository-row'>
 							<div className='owner'>
 								<img src={avatar_url} alt={login} />
 								<a href={html_url}>@{login}</a>
@@ -133,7 +133,7 @@ const Results: React.FC<ResultsProps> = (props) => {
 								<li>
 									<a href={repo_url}>{name}</a>
 								</li>
-								<li>{description ? trim(description, 60) + ' ...' : ''}</li>
+								<li>{description ? truncate(description, 50) : ''}</li>
 								<li>
 									<FaStar size={22} color='rgb(255, 215, 0)' />
 									{stargazers_count}
