@@ -15,9 +15,10 @@ describe('Input Component', () => {
 				placeholder='search test data'
 			/>
 		);
-		const [input] = screen.getAllByPlaceholderText('search test data');
+		const input = screen.getByPlaceholderText('search test data');
 		expect(input.type).toBe('text');
 		fireEvent.change(input, { target: { value: 'vyasriday' } });
+
 		expect(mockOnChange).toHaveBeenCalled();
 	});
 
@@ -30,8 +31,9 @@ describe('Input Component', () => {
 				placeholder='search github repo'
 			/>
 		);
-		const [input] = screen.getAllByPlaceholderText('search github repo');
+		const input = screen.getByPlaceholderText('search github repo');
 		expect(input.type).toBe('search');
 		expect(input.value).toBe('vyasriday');
+		expect(mockOnChange).toHaveBeenCalledTimes(0);
 	});
 });

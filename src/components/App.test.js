@@ -14,7 +14,8 @@ describe('App', () => {
 
 		const button = screen.getByText('Search');
 		expect(button.type).toBe('submit');
-
 		fireEvent.click(button, {});
+		// check if loading screen is shown
+		expect(screen.getByText(/Hang on/)).toBeTruthy();
 	});
 });
