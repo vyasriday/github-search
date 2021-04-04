@@ -18,6 +18,7 @@ const SearchBar: React.FC<SearchBarProps> = (props) => {
 				onChange={(e: ChangeEvent<HTMLInputElement>) =>
 					setSearch(e.target.value)
 				}
+				required={true}
 			/>
 			<Button type='submit' label='Search' />
 		</form>
