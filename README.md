@@ -7,5 +7,8 @@ A simple web app that let's you search github repositories for any user.
 1. Clone the repository.
 2. Run `npm i` to install all the dependencies.
 3. Run `npm start` and this will start a development server on localhost at port 3000.
+
+### Unit Testing
+1. Run `npm test` to run test cases.
    
    

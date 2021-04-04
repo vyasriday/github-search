@@ -26,7 +26,5 @@ describe('SearcBar Component', () => {
 		userEvent.click(submit);
 
 		expect(mockOnSubmit).toHaveBeenCalled();
-
-		screen.debug();
 	});
 });
