@@ -21,12 +21,14 @@ const App: React.FC = () => {
 		try {
 			const url = `${baseUrl}/${search}/repos?per_page=100&all=true`;
 			const response = await fetch(url);
-			const jsonResponse = await response.json();
 
-			if (jsonResponse.message) {
+			if (response.status === 404) {
 				showLoading(false);
 				setError('user not found!');
+				return;
 			}
+
+			const jsonResponse = await response.json();
 			if (!jsonResponse.length) {
 				setError('found 0 repositories 😰');
 			} else {
