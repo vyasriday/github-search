@@ -1,21 +1,19 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
-import Input from './Input';
-import Button from './Button';
 import Results from './Results';
 import Loading from './Loading';
+import SearchBar from './SearchBar';
 import './App.scss';
 import { RepositorySchema } from '../schema/index';
 
 const baseUrl = 'https://api.github.com/users';
 
 const App: React.FC = () => {
-	const [search, setSearch] = useState<string>('');
 	const [repos, setRepos] = useState<RepositorySchema[]>([]);
 	const [loading, showLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string>('');
 
-	async function handleSubmit(e: any) {
+	async function handleSubmit(e: any, search: string) {
 		e.preventDefault();
 		setRepos([]);
 		setError('');
@@ -44,17 +42,7 @@ const App: React.FC = () => {
 	return (
 		<div className='main'>
 			<Header />
-			<form onSubmit={handleSubmit} className='search-box'>
-				<Input
-					value={search}
-					type='search'
-					placeholder='Enter github username'
-					onChange={(e: ChangeEvent<HTMLInputElement>) =>
-						setSearch(e.target.value)
-					}
-				/>
-				<Button type='submit' label='Search' />
-			</form>
+			<SearchBar onSubmit={handleSubmit} />
 			{loading ? (
 				<Loading />
 			) : error ? (
